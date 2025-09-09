@@ -294,10 +294,10 @@ async def get_material_systems():
     systems = await db.material_systems.find().to_list(1000)
     return [MaterialSystem(**system) for system in systems]
 
-@api_router.get("/profiles/{system_id}")
+@api_router.get("/profiles/{system_id}", response_model=List[Profile])
 async def get_profiles_by_system(system_id: str):
     profiles = await db.profiles.find({"system_id": system_id}).to_list(1000)
-    return profiles
+    return [Profile(**profile) for profile in profiles]
 
 @api_router.get("/hardware", response_model=List[Hardware])
 async def get_hardware():
