@@ -107,51 +107,63 @@ user_problem_statement: "Build a comprehensive RA Workshop style application for
 backend:
   - task: "Material Systems API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implemented MaterialSystem, Profile, Hardware, Glass models with full CRUD endpoints. Sample data initialization with 3 material systems (Aluminum, uPVC, Wood), realistic profiles with costs, hardware with compatibility rules, and 5 glass types."
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTED: All material systems APIs working perfectly. Successfully loaded 3 material systems (Alu-Serie 45, uPVC-Serie 70, Madera-Euro68) with correct structure and compatibility rules. Fixed profiles API serialization issue. All endpoints returning proper data structures with realistic Spanish market pricing."
 
   - task: "Window Calculation Engine"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implemented WindowCalculator class with perimeter calculation logic for different opening types, glass area calculation, weight calculation, and intelligent hardware selection based on compatibility rules."
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTED: Window calculation engine working excellently. Tested all opening types (casement, sliding, turn-tilt, awning) with various dimensions. Perimeter calculations accurate, glass area calculations correct (accounting for 80mm frame reduction), weight calculations realistic. Hardware selection based on compatibility rules working properly."
 
   - task: "BOM Generation API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Implemented /api/calculate endpoint that takes WindowConfig and returns complete BOM with profiles, glass, hardware, costs, labor, margins, and final pricing. Includes automatic material selection based on window dimensions and opening type."
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTED: BOM generation API working perfectly. Tested multiple scenarios: small casement (€342.15), large sliding (€582.91), turn-tilt with mullions (€456.11). All calculations mathematically correct - labor cost 10% of materials, 30% margin applied correctly. BOM includes proper profiles, glass, and compatible hardware. Pricing realistic for Spanish market."
 
   - task: "Database Models and Sample Data"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
           comment: "Created comprehensive MongoDB models for material_systems, profiles, hardware, glass. Implemented sample data initialization with realistic Spanish market prices and specifications."
+        - working: true
+          agent: "testing"
+          comment: "✅ TESTED: Sample data initialization working perfectly. /api/init-data endpoint successfully creates 3 material systems, 7 profiles, 6 hardware items, 5 glass types. All data structures correct with realistic Spanish market pricing. MongoDB integration working properly."
 
 frontend:
   - task: "Parametric Window Designer UI"
